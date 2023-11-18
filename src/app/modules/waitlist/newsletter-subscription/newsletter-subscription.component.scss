@@ -1,0 +1,56 @@
+.newsletter {
+   
+    &__input {
+        padding: 1rem;
+        background-color: rgb(var(--black));
+        border: dotted 0.15rem rgb(var(--special-white));
+        border-radius: 3px;
+        margin-bottom: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        color: rgb(var(--white));
+        font-size: 13px;
+        opacity: var(--smooth);
+        &:focus{
+            outline: none;
+        }
+    }
+
+    &__title-wrapper{
+        display: flex;
+        justify-content: center;
+        margin: 1.5rem 0 3rem 0;
+    }
+    &__title{
+        font-size: var(--fs-xxl);
+    }
+    &__input{
+        &::placeholder {
+            color: rgb(var(--white));
+        }
+    }
+    &__button{
+        background-color: rgb(var(--black));
+        border: solid 0.15rem rgb(var(--special-white), 0.5);
+        padding: 1rem 3rem;
+        color: rgb(var(--special-white));
+        box-shadow: 0 0 50px rgb(var(--special-white), 1) rgb(var(--special-white), 0.5);
+        width: 100%;
+        transition: box-shadow 0.3s ease-in-out;
+        &--clicked{
+            box-shadow: 0 0 50px rgb(var(--special-white), 1) rgb(var(--special-white), 0.5) !important;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        &:hover{
+            box-shadow: 0 0 10px rgb(var(--special-white), 0.5);
+        }
+        
+    }
+
+    &__button-clicked{
+        transition: box-shadow 0.3s ease-in-out;
+        box-shadow: 0 0 10px rgb(var(--special-white), 0.5);
+    }
+
+
+}

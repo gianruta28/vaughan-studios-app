@@ -1,0 +1,21 @@
+.countdown {
+    &__container{
+        display: flex;
+        flex-direction: row;
+    }
+    &__wrapper{
+        padding: 1rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+    }
+    &__value{
+        font-size: var(--fs-xxxl);
+        font-weight: var(--fw-semibold);
+    }
+    &__label{
+        font-size: var(--fs-xl);
+        font-weight: var(--fw-regular);
+    }
+}

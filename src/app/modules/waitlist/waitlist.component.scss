@@ -1,0 +1,17 @@
+.waitlist{
+    &__container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: rgb(var(--special-white));
+    }
+
+    &__newsletter-wrapper{
+        min-width: 30rem
+    }
+
+    &__countdown-wrapper{
+        margin-bottom: 2rem;
+    }
+
+}
