@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { FirestoreServiceService } from '../../../../shared/services/firestore/firestore-service.service';
 
-interface NewsletterSuscriptions{
+export interface NewsletterSuscriptions{
   email: string;
 }
 
 const imports = [
   CommonModule,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
 ]
 
 @Component({
@@ -23,10 +27,13 @@ export class NewsletterSubscriptionComponent implements OnInit {
 
   public form: FormGroup;
   public buttonClicked: boolean;
+  public test: Observable<any>;
+  
 
-  constructor(private formBuilder: FormBuilder){
-    
-  }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private fs: FirestoreServiceService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -36,19 +43,9 @@ export class NewsletterSubscriptionComponent implements OnInit {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]]
     });
-
   }
 
-
-onSubmit() {
-  this.buttonClicked = true;
-
-  setTimeout(() => {
-    this.buttonClicked = !this.buttonClicked;
-  }, 500)
-}
-
-
-
-
+  onSubmit(form: any) {
+    this.fs.create(form.email.toLowerCase());
+  }
 }

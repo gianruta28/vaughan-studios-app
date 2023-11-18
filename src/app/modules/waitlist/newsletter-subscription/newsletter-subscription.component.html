@@ -12,7 +12,8 @@
             >
         </div>
         <div class="newsletter__submit-container">
-            <button (click)="onSubmit()"
+            <button (click)="onSubmit(form.value)"
+                [disabled]="!form.valid"
                 class="newsletter__button" 
                 [ngClass]=" {
                     'newsletter__button--clicked': buttonClicked
